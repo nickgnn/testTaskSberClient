@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ClientController {
+public class ClientRestController {
     private ServerApiService apiService;
 
     @Autowired
-    public ClientController(ServerApiService apiService) {
+    public ClientRestController(ServerApiService apiService) {
         this.apiService = apiService;
     }
 
 
-    @RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
+    @RequestMapping(value = "/sendMessage", method = {RequestMethod.POST, RequestMethod.GET})
     public String sendMessage(String message) {
         message = "--------My-First-MESSAGE-----------------";
 
