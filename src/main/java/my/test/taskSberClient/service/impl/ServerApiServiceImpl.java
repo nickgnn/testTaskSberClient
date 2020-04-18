@@ -1,6 +1,6 @@
 package my.test.taskSberClient.service.impl;
 
-import my.test.taskSberClient.model.Message;
+import my.test.taskSberClient.dto.MessageDto;
 import my.test.taskSberClient.service.ServerApiService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -21,8 +21,8 @@ public class ServerApiServiceImpl implements ServerApiService {
     }
 
     @Override
-    public Message sendMessageXML(Message message) {
-        String URL = serverPath + "/api/getMessages/messageXML";
-        return restTemplate.postForObject(URL, message, Message.class);
+    public MessageDto sendMessageXML(MessageDto messageDto) {
+        String URL = serverPath + "/api/getMessages/messageXml";
+        return restTemplate.postForObject(URL, messageDto, MessageDto.class);
     }
 }

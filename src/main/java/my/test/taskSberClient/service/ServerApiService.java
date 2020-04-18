@@ -1,7 +1,7 @@
 package my.test.taskSberClient.service;
 
-import my.test.taskSberClient.model.Message;
+import my.test.taskSberClient.dto.MessageDto;
 
 public interface ServerApiService {
-    Message sendMessageXML(Message message);
+    MessageDto sendMessageXML(MessageDto messageDto);
 }

@@ -1,67 +1,55 @@
 package my.test.taskSberClient.model;
 
-import javax.xml.bind.annotation.*;
-import java.time.LocalDateTime;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlElements;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PROPERTY)
-@XmlType(name = "message")
+@XmlRootElement(name = "SimpleMessage")
 public class Message {
     @XmlElement
-    private int RqUID;
+    private long RqUID;
 
     @XmlElement
-    private LocalDateTime RqTm;
+    private String RqTm;
 
-    @XmlElement
-    private String CurName;
-
-    @XmlElement
-    private Double CurValue;
+    @XmlElementWrapper(name = "Currency")
+    @XmlElements({
+            @XmlElement(name = "CurName", type = String.class),
+            @XmlElement(name = "CurValue", type = Double.class)
+    })
+    private List currency;
 
     public Message() {
     }
 
-    public Message(int rqUID, LocalDateTime rqTm, String curName, Double curValue) {
-        RqUID = rqUID;
-        RqTm = rqTm;
-        CurName = curName;
-        CurValue = curValue;
+    public Message(long rqUID, String rqTm, List currency) {
+        this.RqUID = rqUID;
+        this.RqTm = rqTm;
+        this.currency = currency;
     }
 
     @XmlElement
-    public int getRqUID() {
+    public long getRqUID() {
         return RqUID;
     }
 
-    public void setRqUID(int rqUID) {
-        RqUID = rqUID;
-    }
-
     @XmlElement
-    public LocalDateTime getRqTm() {
+    public String getRqTm() {
         return RqTm;
     }
 
-    public void setRqTm(LocalDateTime rqTm) {
-        RqTm = rqTm;
+    public List getCurrency() {
+        return currency;
     }
 
-    @XmlElement
-    public String getCurName() {
-        return CurName;
-    }
-
-    public void setCurName(String curName) {
-        CurName = curName;
-    }
-
-    @XmlElement
-    public Double getCurValue() {
-        return CurValue;
-    }
-
-    public void setCurValue(Double curValue) {
-        CurValue = curValue;
+    @Override
+    public String toString() {
+        return "Message{" +
+                "RqUID=" + RqUID +
+                ", RqTm='" + RqTm + '\'' +
+                ", currency=" + currency +
+                '}';
     }
 }
