@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2019 sp1 (x64) (http://www.altova.com) by SBT-Vedenyapin-IA (SberTekh, AO) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning" elementFormDefault="qualified" attributeFormDefault="unqualified" vc:minVersion="1.1">
+	<xs:element name="SimpleMessage" type="SimpleMessage_Type">
+		<xs:annotation>
+			<xs:documentation>Тестовые сообщение</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="SimpleMessage_Type">
+		<xs:annotation>
+			<xs:documentation>Тип "Тестовое сообщение"</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="RqUID" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Уникальный 10-значный идентификатор сообщения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RqTm" type="xs:dateTime">
+				<xs:annotation>
+					<xs:documentation>Дата и время отправки сообщения</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Currency" type="Content_Type" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Блок бизнес-данных с информацией с кодом валюты и величиной денежных средств</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Content_Type">
+		<xs:annotation>
+			<xs:documentation>Тип "Блок бизнес-данных"</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CurName" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>Обозначение валюты в ISO 4217</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CurValue" type="xs:double">
+				<xs:annotation>
+					<xs:documentation>Величина денежных средств</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
