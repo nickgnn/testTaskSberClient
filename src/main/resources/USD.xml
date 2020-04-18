@@ -1,0 +1,9 @@
+<SimpleMessage>
+  <RqUID>1</RqUID>
+  <RqTm>2020-04-29T05:49:45</RqTm>
+  <!--1 or more repetitions:-->
+  <Currency>
+    <CurName>USD</CurName>
+    <CurValue>5000.00</CurValue>
+  </Currency>
+</SimpleMessage>
