@@ -1,5 +1,7 @@
 package my.test.taskSberClient.service;
 
+import my.test.taskSberClient.model.Message;
+
 public interface ServerApiService {
-    String sendMessageXML(String message);
+    Message sendMessageXML(Message message);
 }
