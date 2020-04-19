@@ -22,8 +22,7 @@ public class ClientRestController {
         this.unmarshallServiceJAXB = unmarshallServiceJAXB;
     }
 
-
-    @RequestMapping(value = "/sendMessage", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "/send", method = {RequestMethod.POST, RequestMethod.GET})
     public MessageDto sendMessage() throws JAXBException {
         Message message = unmarshallServiceJAXB.unmarshall();
         MessageDto messageDto = new MessageDto();
