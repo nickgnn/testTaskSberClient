@@ -36,6 +36,5 @@ public class ClientRestController {
     @PostMapping(value = "/curname")
     public void getMessage(@RequestBody String curName) {
         System.out.println(curName);
-
     }
 }
