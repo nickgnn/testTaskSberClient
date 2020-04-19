@@ -5,13 +5,12 @@ import my.test.taskSberClient.model.Message;
 import my.test.taskSberClient.service.ServerApiService;
 import my.test.taskSberClient.service.UnmarshallServiceJAXB;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.JAXBException;
 
 @RestController
+@RequestMapping(value = "/clientApi/client")
 public class ClientRestController {
     private ServerApiService apiService;
     private UnmarshallServiceJAXB unmarshallServiceJAXB;
@@ -32,5 +31,11 @@ public class ClientRestController {
         messageDto.setCurrency(message.getCurrency());
 
         return apiService.sendMessageXML(messageDto);
+    }
+
+    @PostMapping(value = "/curname")
+    public void getMessage(@RequestBody String curName) {
+        System.out.println(curName);
+
     }
 }
